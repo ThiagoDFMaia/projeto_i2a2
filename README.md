@@ -71,14 +71,8 @@ O próximo passo será desenvolver uma interface web com **Flask**, tornando o s
 
 * Armazenar logs das perguntas e respostas
 
+* Permitir o uso de outros modelos de LLMS
+
 ## Contribuição
 * Contribuições são bem-vindas!
 * Sinta-se à vontade para abrir issues ou enviar pull requests.
-
-
-### Dicas finais:
-- Salve isso num arquivo com o nome **`README.md`** (sem acento).
-- Coloque esse arquivo na raiz do repositório.
-- O GitHub renderiza automaticamente em formato bonito quando você acessa a página principal do repositório.
-
-Se quiser, posso gerar o `requirements.txt` certinho também! Deseja isso agora?
