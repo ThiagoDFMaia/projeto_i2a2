@@ -1,71 +1,85 @@
-🧠 Desafio 2 – Agentes de Inteligência Artificial (i2a2)
-Este projeto foi desenvolvido como parte do Desafio 2 do curso da plataforma i2a2, com foco na criação de agentes de inteligência artificial.
+# Desafio 2 – Agentes de Inteligência Artificial (i2a2)
 
-🎯 Objetivo
-Criar um sistema com agentes de IA capazes de interpretar dados de notas fiscais e responder, de forma inteligente, às perguntas dos usuários.
+Este projeto foi desenvolvido como parte do **Desafio 2** do curso da plataforma [i2a2](https://i2a2.com.br), com foco na criação de agentes de inteligência artificial.
 
-🧩 Estrutura do Projeto
+## Objetivo
+
+Criar um sistema com **agentes de IA** capazes de interpretar **dados de notas fiscais** e responder, de forma inteligente, às perguntas dos usuários.
+
+## Estrutura do Projeto
+
 O projeto está dividido em três agentes principais:
 
-1. 🧠 Agente de Prompt
+### 1. Agente de Prompt
+
 Responsável por:
 
-Receber a pergunta do usuário
+- Receber a pergunta do usuário
+- Selecionar uma amostra dos dados
+- Gerar um prompt estruturado com o passo a passo necessário para encontrar a resposta
 
-Selecionar uma amostra dos dados
+### 2. Agente Executor
 
-Gerar um prompt estruturado com o passo a passo necessário para encontrar a resposta
-
-2. ⚙️ Agente Executor
 Responsável por:
 
-Receber o conjunto de dados completo
+- Receber o conjunto de dados completo
+- Executar os passos gerados pelo Agente de Prompt
+- Gerar uma resposta baseada na análise dos dados
 
-Executar os passos gerados pelo Agente de Prompt
+### 3. Agente Validador
 
-Gerar uma resposta baseada na análise dos dados
-
-3. ✅ Agente Validador
 Responsável por:
 
-Receber a resposta gerada pelo Executor
+- Receber a resposta gerada pelo Executor
+- Validar a coerência e precisão da resposta
+- Apontar possíveis erros ou inconsistências
 
-Validar a coerência e precisão da resposta
+## Interface
 
-Apontar possíveis erros ou inconsistências
+No momento, a interface é baseada em terminal (console).  
+O próximo passo será desenvolver uma interface web com **Flask**, tornando o sistema mais acessível e amigável ao usuário final.
 
-🖥️ Interface
-No momento, a interface é console-based (terminal).
-O próximo passo será desenvolver uma interface web com Flask, permitindo uma experiência mais amigável para o usuário final.
+## Estrutura de Arquivos
 
-📂 Estrutura de Arquivos
-css
-Copiar
-Editar
-.
 ├── dataset/
-│   ├── 202401_NFs_Cabecalho.csv
-│   └── 202401_NFs_Itens.csv
-├── main.py
+│ ├── 202401_NFs_Cabecalho.csv
+│ └── 202401_NFs_Itens.csv
+├── agente.py
 ├── requirements.txt
 └── README.md
-▶️ Como Executar
-1.  Clone o repositório
+
+
+## Como Executar
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/ThiagoDFMaia/projeto_i2a2.git
+cd projeto_i2a2
 
 2. Instale as dependências:
-   pip install -r requirements.txt
+pip install -r requirements.txt
 
 3. Execute o projeto:
-   python agente.py
+python agente.py
 
-🔮 Próximos Passos
- Criar uma interface web com Flask
+## Próximos Passos
+* Criar uma interface web com Flask
 
- Permitir upload de arquivos CSV pelo usuário
+* Permitir upload de arquivos CSV pelo usuário
 
- Tornar os agentes independentes e reutilizáveis
+* Tornar os agentes independentes e reutilizáveis
 
- Armazenar logs das perguntas e respostas
+* Armazenar logs das perguntas e respostas
 
-🤝 Contribuição
-Contribuições são bem-vindas! Fique à vontade para abrir issues ou enviar pull requests.
+## Contribuição
+* Contribuições são bem-vindas!
+* Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+
+### Dicas finais:
+- Salve isso num arquivo com o nome **`README.md`** (sem acento).
+- Coloque esse arquivo na raiz do repositório.
+- O GitHub renderiza automaticamente em formato bonito quando você acessa a página principal do repositório.
+
+Se quiser, posso gerar o `requirements.txt` certinho também! Deseja isso agora?
