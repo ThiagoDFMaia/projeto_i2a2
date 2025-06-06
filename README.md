@@ -50,17 +50,13 @@ Editar
 ├── requirements.txt
 └── README.md
 ▶️ Como Executar
-Clone o repositório:
+1.  Clone o repositório
 
-bash
-Instale as dependências:
+2. Instale as dependências:
+   pip install -r requirements.txt
 
-bash
-pip install -r requirements.txt
-Execute o projeto:
-
-bash
-python agente.py
+3. Execute o projeto:
+   python agente.py
 
 🔮 Próximos Passos
  Criar uma interface web com Flask
