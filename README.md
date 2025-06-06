@@ -53,15 +53,14 @@ O próximo passo será desenvolver uma interface web com **Flask**, tornando o s
 
 1. Clone o repositório:
 
-```bash
-git clone https://github.com/ThiagoDFMaia/projeto_i2a2.git
-cd projeto_i2a2
+* git clone https://github.com/ThiagoDFMaia/projeto_i2a2.git
+
 
 2. Instale as dependências:
-pip install -r requirements.txt
+* pip install -r requirements.txt
 
 3. Execute o projeto:
-python agente.py
+* python agente.py
 
 ## Próximos Passos
 * Criar uma interface web com Flask
