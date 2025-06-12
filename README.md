@@ -35,6 +35,14 @@ Responsável por:
 - Retorna o código para ser executado
 - Gera gráficos
 
+### 4. Agente executor
+
+Responsável por:
+
+- Cria a classe agente
+- Envia os comandos para os outros agentes
+- Guarda os dados do dataset e chaves
+
 ## Interface
 
 No momento, a interface é baseada em terminal (console).  
