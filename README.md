@@ -4,11 +4,11 @@ Este projeto foi desenvolvido como parte do **Desafio 2** do curso da plataforma
 
 ## Objetivo
 
-Criar um sistema com **agentes de IA** capazes de interpretar **dados de notas fiscais** e responder, de forma inteligente, às perguntas dos usuários.
+Criar um sistema com **agentes de IA** capazes de descompactar arquivos  e responder, de forma inteligente, às perguntas dos usuários referente aos arquivos descompactados.
 
 ## Estrutura do Projeto
 
-O projeto está dividido em três agentes principais:
+O projeto está dividido em quatro agentes principais:
 
 ### 1. Agente de Prompt
 
@@ -18,21 +18,22 @@ Responsável por:
 - Selecionar uma amostra dos dados
 - Gerar um prompt estruturado com o passo a passo necessário para encontrar a resposta
 
-### 2. Agente Executor
+### 2. Agente descompactador
 
 Responsável por:
 
-- Receber o conjunto de dados completo
-- Executar os passos gerados pelo Agente de Prompt
-- Gerar uma resposta baseada na análise dos dados
+- Receber o arquivo compactado
+- Descompacta os arquivos
+- Retorna o dataset dos arquivos agrupados.
 
-### 3. Agente Validador
+### 3. Agente Programador
 
 Responsável por:
 
-- Receber a resposta gerada pelo Executor
-- Validar a coerência e precisão da resposta
-- Apontar possíveis erros ou inconsistências
+- Gera o melhor codigo python para responder a pergunta do usuário
+- Gera o código para agrupar os arquivos
+- Retorna o código para ser executado
+- Gera gráficos
 
 ## Interface
 
