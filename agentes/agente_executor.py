@@ -1,36 +1,42 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import PromptTemplate
+import os
+import io
+import pandas as pd
+from agentes import agente_prompt as prompt,agente_programador as programador, agente_descompactador as descompactador, agente_validador as validador
 
-def executar_prompt(pergunta,chave,df,prompt):
-    dados_texto = df.to_string(index=False)
-    prompt_template = PromptTemplate(
-        input_variables=["dados"],
-        template="""
-        Você é um agente executor.
 
-        Vai receber um prompt e um conjunto de dados para responder a pergunta.
-        Não é para retornar codigo de programação.
+class Agente:
+    def __init__(self):
+        self.url=''
+        self.chave=''
+        self.df=None
 
-        Vai executar passo a passo o que foi ordenado no prompt.
-      
-        E retornar o resultado do comando e descrever o que voce fez.
+    def carrega_arquivos(self,url, chave):
+
+        # 👉 Coloque sua chave da API Gemini aqui:
+        os.environ["GOOGLE_API_KEY"] = chave
+
+
+        arquivos=descompactador.descompactar_arquivos(url)
+
+
+        amostras=descompactador.preparar_amostras_para_agente(arquivos)
+
+        rest=programador.agrupar_arquivos(os.environ["GOOGLE_API_KEY"],amostras)
+        codigo_limpo = rest.strip("```").replace("python", "").strip()
+
+        exec_globals = {"pd": pd}
+        exec_locals = {"lista_df": arquivos} # Passa 'lista_df' com os DataFrames completos
+        exec(codigo_limpo, exec_globals, exec_locals)
+        self.df = exec_locals.get("df")
+       
+
+
+    def pergunta(self,pergunta):
+            prompt_gerado=prompt.gerar_prompt(pergunta,os.environ["GOOGLE_API_KEY"],self.df)
+            print(prompt_gerado)
+            resposta=programador.gerar_codigo(os.environ["GOOGLE_API_KEY"],self.df,prompt_gerado)
+            print(resposta)
+            codigo_limpo = resposta.strip("```").replace("python", "").strip()
+            exec(codigo_limpo, {"df_total": self.df})
     
-
-        Aqui esta o conjunto de dados:
-        {dados}
-
-        prompt:
-        {prompt}
-
-        Pergunta:
-        {pergunta}
-        """
-        )
-    
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=chave)
-
-    chain = prompt_template | llm
-    resposta = chain.invoke({"dados": dados_texto, "pergunta": pergunta,"prompt": prompt})
-  
-
-    return resposta.content
+ 

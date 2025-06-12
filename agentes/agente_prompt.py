@@ -9,10 +9,12 @@ def gerar_prompt(pergunta,chave,df):
         Você é um engenheiro de prompt.
 
         Vai receber algumas linhas de um conjunto de dados e fazer o melhor prompt para responder a pergunta do usuario.
+        Você não vai criar nenhum codigo.
+        Vai só criar o melhor prompt para responder a pergunta.
+        O prompt vai ser enviado para um agente programador python para fazer um codigo python.
 
-        O prompt pode descrecrever detalhadamente o passo a passo para responder a pergunta.
-        Não vai retornar os dados.
-        Não vai retornar codigo de programação.
+        O agente programador deve ser capaz de elabora um codigo com o prompt que voce descreveu para responder a pergunta.
+ 
         
 
         Aqui esta o conjunto de dados:
