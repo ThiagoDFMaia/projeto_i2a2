@@ -35,6 +35,8 @@ st.markdown("""**Como usar:**
 2.  **Inicialize o Agente** clicando no botão "Inicializar Agente".
 3.  **Converse com o Agente** na área de chat principal.
 4.  **Veja o Histórico** e baixe os logs de conversa na barra lateral.
+5.  **OBS: por enquanto só é possível utilizar o gemini-2.0-flash.
+            
 """)
 
 
