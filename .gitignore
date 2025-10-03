@@ -174,3 +174,35 @@ poetry.toml
 pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+#-----------------------------------------------------------------------
+# Adições específicas para o projeto de Agentes de IA (i2a2)
+#-----------------------------------------------------------------------
+
+# 1. Arquivos de Segredos e Configuração Local
+# Nunca versione chaves de API, senhas ou outras informações sensíveis.
+# O arquivo .env já está no template base, mas é a regra mais importante.
+.streamlit/
+secrets.toml
+*.ini
+
+# 2. Logs do Sistema
+# Ignora diretórios e arquivos de log, conforme planejado nos próximos passos.
+logs/
+*.log
+
+# 3. Dados Temporários, Baixados ou de Upload
+# Ignora arquivos .zip baixados e um diretório para uploads de usuários.
+*.zip
+uploads/
+
+# 4. Artefatos e Saídas Geradas pelo Agente
+# Ignora saídas como gráficos, relatórios e outros arquivos gerados em tempo de execução.
+output/
+generated/
+*.png
+*.jpg
+*.jpeg
+*.svg
+#  A regra *.csv no final é para evitar que os arquivos descompactados pelo agente (202401_NFs_Cabecalho.csv e 202401_NFs_Itens.csv) sejam adicionados novamente se forem gerados fora do diretório dataset/. Se você tem a garantia de que seu agente sempre os manipulará dentro do diretório dataset/ (que já está versionado), você pode remover a linha *.csv. No entanto, é uma boa proteção contra commits acidentais.
+*.csv

@@ -17,7 +17,9 @@ def gerar_codigo(chave,df,prompt):
     - Apenas gere o código diretamente executável.
     - O código deve terminar com um `print()` que exibe a resposta final como uma **string**.
     - O print de retorno pode ser contextualizado.
-    - Se for solicitado criar algum grafico pode obrigatoriamente plotar com o pandas ou matplotlib
+    - Se for solicitado criar algum grafico pode obrigatoriamente plotar com o pandas ou matplotlib.
+    - Coloque um print com a resposta final
+    - Não coloque comentarios
 
     lista de colunas:
     {dados}
