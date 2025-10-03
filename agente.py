@@ -9,6 +9,8 @@ import matplotlib as mlt
 from agentes import  agente_executor as executor
 from contextlib import redirect_stdout, redirect_stderr
 import traceback
+from langchain_google_genai.chat_models import ChatGoogleGenerativeAIError
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 # # Exemplo de uso do Agente
 # chave='coloque aqui sua chave do gemini studio'
@@ -56,6 +58,8 @@ class AgenteController:
             if not file_url and not uploaded_files:
                 return "⚠️ Por favor, forneça uma URL ou carregue um arquivo."
             
+            if not validar_api_key(api_key):
+                return "⚠️ API Key inválida. Verifique e tente novamente."
             # Baixa, descompacta e carrega os CSVs no agente
             self.agente = executor.Agente()
             self.agente.carrega_arquivos(chave=api_key, url=file_url, arquivos_carregados=uploaded_files)
@@ -98,3 +102,14 @@ class AgenteController:
             return answer, fig
         except Exception as e:
             return f"Ocorreu um erro ao processar a pergunta: {e}\n\n{output_capture.getvalue()}"
+
+
+def validar_api_key(api_key: str) -> bool:
+    try:
+        llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=api_key)
+        _ = llm.invoke("ping")  # chamada simples
+        return True
+    except ChatGoogleGenerativeAIError as e:
+        return False
+    except Exception as e:
+        return False
